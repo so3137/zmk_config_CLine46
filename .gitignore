@@ -1,0 +1,19 @@
+# west workspace and downloaded dependencies
+/.west/
+/zmk/
+/modules/
+/zmk-feature-non-lipo-battery-management/
+/zmk-module-ble-management/
+/zmk-module-battery-history/
+/zmk-module-settings-rpc/
+/zmk-module-runtime-input-processor/
+/zmk-pmw3610-driver/
+/zmk-rgbled-widget/
+
+# Zephyr is downloaded by west, but this repository owns zephyr/module.yml.
+/zephyr/*
+!/zephyr/module.yml
+
+# Local build outputs
+/build/
+/firmware/local/
