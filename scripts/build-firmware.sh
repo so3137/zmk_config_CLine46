@@ -85,6 +85,12 @@ fi
 echo "==> Building CLine46 firmware"
 echo "    output: $OUTPUT_DIR"
 
+echo "==> Configuring Git safe directories"
+git config --global --add safe.directory "$WORKDIR_IN_CONTAINER"
+while IFS= read -r git_dir; do
+  git config --global --add safe.directory "$(dirname "$git_dir")"
+done < <(find "$WORKDIR_IN_CONTAINER" -type d -name .git -prune)
+
 if [ ! -d .west ]; then
   echo "==> Initializing west workspace"
   west init -l config
