@@ -67,7 +67,8 @@
     input-processors =<&mouse_runtime_input_processor>,
         //<&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;         //Y軸反転
         //<&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,        //X軸とY軸の入れ替え
-        <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>;       //X軸反転
+        <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,       //X軸反転
+        <&zip_xy_scaler 3 2>;                               //カーソル移動量 1.5倍
         //<&zip_temp_layer 2 1000>;                            //オートマウスレイヤーの選択;
 
 
@@ -80,6 +81,6 @@
             <&zip_xy_to_scroll_mapper>,                         //スクロールモードに変更
             <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>,   //スクロールのX軸反転
             //<&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>,   //スクロールのY軸反転
-            <&zip_scroll_scaler 1 8>;                           //スクロール量を1/8倍
+            <&zip_scroll_scaler 1 16>;                           //スクロール量を1/16倍
     };
 };
