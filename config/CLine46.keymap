@@ -70,7 +70,7 @@
         cursor {
             bindings = <
 &trans  &kp TILDE  &kp PIPE       &kp DQT  &kp LBRC          &kp RBRC                             &trans         &kp PAGE_UP     &kp UP_ARROW  &kp PAGE_DOWN  &trans   &trans
-&trans  &kp GRAVE  &kp BACKSLASH  &kp SQT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET                    &kp HOME       &kp LEFT_ARROW  &kp UP_ARROW  &kp RIGHT      &kp END  &trans
+&trans  &kp GRAVE  &kp BACKSLASH  &kp SQT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET                    &kp HOME       &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT      &kp END  &trans
 &trans  &trans     &trans         &trans   &trans            &trans                               &kp BACKSPACE  &kp DELETE      &kp LT        &kp GT         &trans   &trans
         &trans     &trans         &trans   &trans            &trans             &trans    &trans  &trans                                       &trans         &trans
             >;
