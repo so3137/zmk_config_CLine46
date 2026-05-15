@@ -83,4 +83,82 @@
             //<&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>,   //スクロールのY軸反転
             <&zip_scroll_scaler 1 16>;                           //スクロール量を1/16倍
     };
+
+    gesture {
+        layers = <4>;
+        input-processors = <&mouse_runtime_input_processor>,
+            //<&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;         //Y軸反転
+            //<&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,          //X軸とY軸の入れ替え
+            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,         //X軸反転
+            <&zip_mouse_gesture_layer_4>,
+            <&zip_xy_scaler 0 1>;                                 //ジェスチャー中はカーソルを動かさない
+    };
+
+    gesture_layer_5 {
+        layers = <5>;
+        input-processors = <&mouse_runtime_input_processor>,
+            //<&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;         //Y軸反転
+            //<&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,          //X軸とY軸の入れ替え
+            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,         //X軸反転
+            <&zip_mouse_gesture_layer_5>,
+            <&zip_xy_scaler 0 1>;                                 //ジェスチャー中はカーソルを動かさない
+    };
+};
+
+/ {
+    zip_mouse_gesture_layer_4: zip_mouse_gesture_layer_4 {
+        compatible = "zmk,input-processor-mouse-gesture";
+        #input-processor-cells = <0>;
+        stroke-size = <300>;
+        enable-eager-mode;
+        always-active;
+
+        history_back {
+            pattern = <GESTURE_RIGHT>;
+            bindings = <&kp LA(LEFT)>;
+        };
+
+        history_forward {
+            pattern = <GESTURE_LEFT>;
+            bindings = <&kp LA(RIGHT)>;
+        };
+
+        close_tab {
+            pattern = <GESTURE_DOWN GESTURE_RIGHT>;
+            bindings = <&kp LC(W)>;
+        };
+
+        new_tab {
+            pattern = <GESTURE_DOWN GESTURE_LEFT>;
+            bindings = <&kp LC(T)>;
+        };
+    };
+
+    zip_mouse_gesture_layer_5: zip_mouse_gesture_layer_5 {
+        compatible = "zmk,input-processor-mouse-gesture";
+        #input-processor-cells = <0>;
+        stroke-size = <300>;
+        enable-eager-mode;
+        always-active;
+
+        copy {
+            pattern = <GESTURE_UP>;
+            bindings = <&kp LC(C)>;
+        };
+
+        paste {
+            pattern = <GESTURE_DOWN>;
+            bindings = <&kp LC(V)>;
+        };
+
+        undo {
+            pattern = <GESTURE_LEFT>;
+            bindings = <&kp LC(Z)>;
+        };
+
+        redo {
+            pattern = <GESTURE_RIGHT>;
+            bindings = <&kp LC(Y)>;
+        };
+    };
 };
