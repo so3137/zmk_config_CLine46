@@ -2,6 +2,15 @@
 #include <physical_layouts.dtsi>
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
+#include <mouse-gesture.dtsi>
+
+&mouse_gesture_kp {
+    tapping-term-ms = <200>;
+};
+
+&mouse_gesture_mkp {
+    tapping-term-ms = <200>;
+};
 
 / {
     chosen {
